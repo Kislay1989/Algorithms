@@ -1,0 +1,181 @@
+{
+  "searchContext": {
+    "lob": "flight",
+    "pageType": "Flight-Ond-City",
+    "location": null,
+    "origin": {
+      "id": 178248,
+      "code": "CHI",
+      "name": "Chicago",
+      "defaultName": "Chicago",
+      "extendedName": "Chicago (and vicinity), Illinois, United States of America",
+      "type": "multi_city_vicinity",
+      "parent": {
+        "id": 215,
+        "code": null,
+        "name": "Illinois",
+        "defaultName": "Illinois",
+        "extendedName": "Illinois, United States of America",
+        "type": "province_state",
+        "parent": null,
+        "lodging": {
+          "hotelCount": 1629
+        },
+        "distance": null,
+        "geoCoordinate": null,
+        "realWorldGeo": {
+          "status": "active",
+          "type": "province_state"
+        },
+        "parentId": 0,
+        "localizedName": "Illinois"
+      },
+      "lodging": {
+        "hotelCount": 905
+      },
+      "distance": null,
+      "geoCoordinate": null,
+      "realWorldGeo": {
+        "status": "active",
+        "type": "multi_city_vicinity"
+      },
+      "cityName": null,
+      "parentCityName": null,
+      "parentId": 215,
+      "localizedName": "Chicago"
+    },
+    "destination": {
+      "id": 178293,
+      "code": "NYC",
+      "name": "New York",
+      "defaultName": "New York",
+      "extendedName": "New York (and vicinity), New York, United States of America",
+      "type": "multi_city_vicinity",
+      "parent": {
+        "id": 234,
+        "code": null,
+        "name": "New York",
+        "defaultName": "New York",
+        "extendedName": "New York, United States of America",
+        "type": "province_state",
+        "parent": null,
+        "lodging": {
+          "hotelCount": 2661
+        },
+        "distance": null,
+        "geoCoordinate": null,
+        "realWorldGeo": {
+          "status": "active",
+          "type": "province_state"
+        },
+        "parentId": 0,
+        "localizedName": "New York"
+      },
+      "lodging": {
+        "hotelCount": 984
+      },
+      "distance": null,
+      "geoCoordinate": null,
+      "realWorldGeo": {
+        "status": "active",
+        "type": "multi_city_vicinity"
+      },
+      "cityName": null,
+      "parentCityName": null,
+      "parentId": 234,
+      "localizedName": "New York"
+    },
+    "airCarrier": null,
+    "carSupplier": null,
+    "cruiseLine": null,
+    "urlMappingId": null,
+    "starRating": null,
+    "affinity": null,
+    "hotelBrand": null,
+    "alternativeAccommodation": null,
+    "coordinates": null,
+    "hotelSearch": null,
+    "page": 0,
+    "preview": false,
+    "mock": false,
+    "cache": true,
+    "hotelPage": 0
+  },
+  "siteContext": {
+    "id": 70403,
+    "eapid": 0,
+    "tpid": 70403,
+    "defaultDomain": "www.ebookers.com",
+    "defaultLocale": "en_GB",
+    "resolvedLocale": "en_GB",
+    "resolvedLangId": 2057,
+    "baseBrand": "Ebookers",
+    "brandId": "ebookers",
+    "bookingDetails": {
+      "pointOfSale": "eBookers United Kingdom",
+      "country": "GBR",
+      "brandId": 0,
+      "companyCode": 10134,
+      "operatingUnitId": 4027,
+      "managementUnitCode": 4027,
+      "jurisdictionCode": "GBR",
+      "active": false
+    },
+    "localizedFormats": {
+      "calendar": "eeee, dd mm yyyy",
+      "localizedYMD": "",
+      "shortDateFormat": "d/M/yyyy",
+      "mediumDateFormat": "d MMM",
+      "longDateFormat": "d MMM yyyy",
+      "fullDateFormat": "EEE, d MMM",
+      "shortTimeFormat": "HH:mm",
+      "mediumTimeFormat": "HH:mm:ss",
+      "longTimeFormat": "HH:mm z",
+      "fullTimeFormat": "HH:mm:ss zzzz",
+      "currencyFormat": "¤#,##0.00",
+      "roundedCurrencyFormat": "¤#,##0",
+      "negativeCurrencyFormat": "-£#",
+      "currencySymbol": "£",
+      "groupingSeparator": ",",
+      "decimalSeparator": ".",
+      "currencyCode": "GBP"
+    },
+    "gpid": 0,
+    "reportingId": 0,
+    "locale": "en_GB",
+    "langId": 2057,
+    "topLevelSiteId": 0,
+    "companyCode": 10134,
+    "managementUnitCode": 4027,
+    "jurisdictionCode": "GBR",
+    "operatingUnitId": 4027,
+    "brandNameForDisplay": "ebookers",
+    "siteNameForDisplay": "ebookers.com"
+  },
+  "userContext": {
+    "userType": "ANONYMOUS",
+    "tuid": 0,
+    "expUserId": 0,
+    "deviceInformation": {
+      "tablet": false,
+      "wirelessDevice": false,
+      "mobile": false
+    },
+    "marketingChannelType": "SEO.U.google.com",
+    "userLocation": null,
+    "requestId": "8bea54c1-c3f8-4990-ac1e-6bd7af9f3770",
+    "guid": "0f883841-49d2-4fee-8d4f-a3b03eb08366",
+    "firstName": null,
+    "lastName": null
+  },
+  "userProfile": {
+    "attributes": []
+  },
+  "experimentContext": {
+    "experiments": {
+      "FlexRealWorldGeoABOverride": 0,
+      "FlexRealWorldGeoProduction": 0,
+      "SLP1DFlightsFareCalendarOrbitzFlex": 0
+    }
+  }
+}

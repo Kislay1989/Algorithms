@@ -68,8 +68,9 @@ public final class BowlingAlleyService {
 
     public int getSparePoints(int firstScore)
     {
-	BowlingAlleyConstants.COMPLETE_SCORE +
-			BowlingAlleyConstants.SPARE_BONUS;
+	/*BowlingAlleyConstants.COMPLETE_SCORE +
+			BowlingAlleyConstants.SPARE_BONUS;*/
+	return 0;
     }
 
     public void printCurrentScoreStatus(Map<Integer, List<Integer>> map)
