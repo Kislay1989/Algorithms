@@ -37,9 +37,9 @@ public final class BowlingAlleyController {
 			break;
 		    default:
 			String nextScore = scanner.next();
-			int finalScore;
+			int finalScore = 0;
 			if (nextScore.equals(BowlingAlleyConstants.SPARE)) {
-			    finalScore = service.getSparePoints(Integer.parseInt(score));
+			    //finalScore = service.getSparePoints(Integer.parseInt(score));
 			} else {
 			    finalScore = Integer.parseInt(score)+Integer.parseInt(nextScore);
 			}
