@@ -16,15 +16,28 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class AllocationServiceImpl implements AllocationService {
 
-    private Map<String, IPStatus> ipMap;
-    private Properties properties;
+    private static Map<String, IPStatus> ipMap;
+    private static Properties properties;
+    private static AllocationServiceImpl instance;
 
-    public AllocationServiceImpl() throws Exception
+    private AllocationServiceImpl()
     {
-	ipMap = new TreeMap<>();
-	properties = new Properties();
-	InputStream input = new FileInputStream("ipallocation.properties");
-	properties.load(input);
+    }
+
+    public static AllocationServiceImpl getInstance() throws Exception
+    {
+	if (instance == null) {
+	    synchronized (AllocationServiceImpl.class) {
+		if (instance == null) {
+		    instance = new AllocationServiceImpl();
+		    ipMap = new TreeMap<>();
+		    properties = new Properties();
+		    InputStream input = new FileInputStream("ipallocation.properties");
+		    properties.load(input);
+		}
+	    }
+	}
+	return instance;
     }
 
     @Override
@@ -35,7 +48,8 @@ public class AllocationServiceImpl implements AllocationService {
 
 	int ipStart = Integer.parseInt(properties.getProperty(Constants.IPADDRESS_START_RANGE));
 	int ipEnd = Integer.parseInt(properties.getProperty(Constants.IPADDRESS_END_RANGE));
-	int ipExpiryTimeInHr = Integer.parseInt(properties.getProperty(Constants.IPADDRESS_END_RANGE));
+	int ipExpiryTimeInHr =
+			Integer.parseInt(properties.getProperty(Constants.IPADDRESS_END_RANGE));
 
 	Date currentDate = new Date();
 	Date expiryDate = new Date(currentDate.getTime() + ipExpiryTimeInHr * Constants.HOUR);
@@ -54,7 +68,8 @@ public class AllocationServiceImpl implements AllocationService {
 
 	IPStatus ipStatus = ipMap.get(macAddress);
 	Date expiryDate = ipStatus.getExpiryTime();
-	int ipExpiryTimeInHr = Integer.parseInt(properties.getProperty(Constants.IPADDRESS_EXPIRE_DURATION));
+	int ipExpiryTimeInHr = Integer.parseInt(
+			properties.getProperty(Constants.IPADDRESS_EXPIRE_DURATION));
 	Date newExpiryDate = new Date(expiryDate.getTime() + ipExpiryTimeInHr * Constants.HOUR);
 	ipStatus.setExpiryTime(newExpiryDate);
 
