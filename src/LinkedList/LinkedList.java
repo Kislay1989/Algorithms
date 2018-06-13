@@ -1,90 +1,109 @@
 package LinkedList;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by kislay on 3/30/17 at 5:18 PM .
  */
-public class LinkedList {
-    public LLNode reverseLinkedListViaIterativeApproach(LLNode node)
-    {
-	if (node == null || node.getNext() == null)
-	    return node;
+public class LinkedList
+{
+	public LLNode reverseLinkedListViaIterativeApproach (LLNode node) {
+		if (node == null || node.getNext() == null)
+			return node;
 
-	LLNode current = node;
-	LLNode next, previous = null;
+		LLNode current = node;
+		LLNode next, previous = null;
 
-	while (current.getNext() != null) {
-	    next = current.getNext();
-	    current.setNext(previous);
-	    previous = current;
-	    current = next;
+		while (current.getNext() != null) {
+			next = current.getNext();
+			current.setNext(previous);
+			previous = current;
+			current = next;
+		}
+		return current;
 	}
-	return current;
-    }
 
-    private LLNode reverseLinkedListViaRecursiveApproach(LLNode node)
-    {
-	//base case
-	if (node.getNext() == null)
-	    return node;
+	private LLNode reverseLinkedListViaRecursiveApproach (LLNode node) {
+		//base case
+		if (node.getNext() == null)
+			return node;
 
-	LLNode rest = node.getNext();
+		LLNode rest = node.getNext();
 
-	LLNode head = reverseLinkedListViaRecursiveApproach(rest);
-	rest.setNext(node);
+		LLNode head = reverseLinkedListViaRecursiveApproach(rest);
+		rest.setNext(node);
 
-	return head;
-    }
+		return head;
+	}
 
     /*public LinkedList.LLNode reverseDoublyLinkedList(LinkedList.LLNode node)
     {
 
     }*/
 
-    public LLNode mergeTwoSortedLinkedLists(LLNode firstList, LLNode secondList)
-    {
-	if (firstList == null && secondList == null)
-	    return null;
-	if (firstList == null)
-	    return secondList;
-	if (secondList == null)
-	    return firstList;
+	public LLNode mergeTwoSortedLinkedLists (LLNode firstList, LLNode secondList) {
+		if (firstList == null && secondList == null)
+			return null;
+		if (firstList == null)
+			return secondList;
+		if (secondList == null)
+			return firstList;
 
-	LLNode head = null;
-	LLNode current1 = null, current2 = null;
+		LLNode head = null;
+		LLNode current1 = null, current2 = null;
 
-	if (firstList.getData() < secondList.getData()) {
-	    head = firstList;
-	    current1 = firstList.getNext();
-	    current2 = secondList;
-	} else if (firstList.getData() > secondList.getData()) {
-	    head = secondList;
-	    current1 = firstList;
-	    current2 = secondList.getNext();
+		if (firstList.getData() < secondList.getData()) {
+			head = firstList;
+			current1 = firstList.getNext();
+			current2 = secondList;
+		} else if (firstList.getData() > secondList.getData()) {
+			head = secondList;
+			current1 = firstList;
+			current2 = secondList.getNext();
+		}
+
+		LLNode tail = head;
+
+		while (true) {
+			if (current1 == null) {
+				tail.setNext(current2);
+				break;
+			}
+			if (current2 == null) {
+				tail.setNext(current1);
+				break;
+			}
+			if (current1.getData() < current2.getData()) {
+				tail.setNext(current1);
+				current1 = current1.getNext();
+			}
+			if (current1.getData() > current2.getData()) {
+				tail.setNext(current2);
+				current2 = current2.getNext();
+			}
+
+			tail = tail.getNext();
+		}
+
+		return head;
 	}
 
-	LLNode tail = head;
+	public LLNode removeDuplicateNodes (LLNode head) {
+		Set<Integer> set = new HashSet<>();
+		LLNode current = head;
+		LLNode previous = head;
 
-	while (true) {
-	    if (current1 == null) {
-		tail.setNext(current2);
-		break;
-	    }
-	    if (current2 == null) {
-		tail.setNext(current1);
-		break;
-	    }
-	    if (current1.getData() < current2.getData()) {
-		tail.setNext(current1);
-		current1 = current1.getNext();
-	    }
-	    if (current1.getData() > current2.getData()) {
-		tail.setNext(current2);
-		current2 = current2.getNext();
-	    }
-
-	    tail = tail.getNext();
+		while (current != null) {
+			boolean status = set.add(current.getData());
+			if (!status) {
+				previous.setNext(current.getNext());
+				current = current.getNext();
+				continue;
+			}
+			previous = current;
+			current = current.getNext();
+		}
+		return head;
 	}
-
-	return head;
-    }
 }
