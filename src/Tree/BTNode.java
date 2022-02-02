@@ -1,4 +1,4 @@
-package Tree;
+package src.Tree;
 
 /**
  * Created by kislay on 3/31/17 at 11:54 PM .
