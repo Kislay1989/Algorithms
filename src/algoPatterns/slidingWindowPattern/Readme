@@ -1,0 +1,29 @@
+Sliding Window Pattern - This helps us in finding sub arrays or substrings that meet specific criteria.
+In this case the continuous subsets of elements are processed or analyzed.
+
+Sliding window means we take a range (window) of elements, process it, and then slide it forward instead of recalculating everything again.
+
+Imagine:
+
+You are checking 5 consecutive students' marks
+Instead of recalculating sum every time,
+You:
+➕ add next student
+➖ remove previous student
+👉 That’s sliding window
+
+Key rule for identifying Sliding Window pattern :-
+Sliding window works when:
+- The problem deals with contiguous sub-arrays/substrings
+- You can expand/shrink window and maintain validity
+
+The key approach to solve sliding window problems is:
+- Use two pointers to represent the window's start and end
+- For every iteration, increment the right pointer get the new element and do the computation
+- Then increment the left pointer to shrink the window (remove the leftmost element) and do the computation again
+- This avoids re-computation for the whole window. Add one → Remove one ✅
+
+
+There are generally two categories of Sliding window problems:
+- Fixed Size Sliding Window Problems
+- Variable Size Sliding Window Problems

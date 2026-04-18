@@ -1,0 +1,14 @@
+The top K related problems are a common category of problems that involve finding the K largest or smallest elements in a collection of data.
+These problems can be solved using max heap as it allows us to efficiently retrieve the largest element in a collection.
+In Java its called PriorityQueue and in Python its called heapq.
+
+Steps to identify if a problem is a top K problem or will require a min Heap or max Heap -
+- Use a heap when you need to repeatedly access/remove the smallest or largest element efficiently
+- Look for keywords -
+    k smallest
+    k largest
+    top k
+    minimum/maximum repeatedly
+    closest
+    merge
+

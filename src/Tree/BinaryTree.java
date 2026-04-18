@@ -1,4 +1,4 @@
-package src.Tree;
+package Tree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -18,6 +18,7 @@ public class BinaryTree {
 
         Queue<BSTNode> queue = new LinkedList<>();
         queue.add(root);
+
         while (!queue.isEmpty()) {
             BSTNode tempBSTNode = queue.poll();
             System.out.print(tempBSTNode.getData() + " ");

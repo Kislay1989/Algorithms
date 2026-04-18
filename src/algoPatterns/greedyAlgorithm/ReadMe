@@ -1,0 +1,12 @@
+Key Things to Approach Greedy Problems
+- Look for “Local Best Choice” - Greedy algorithms make the locally optimal choice at each iteration with the hope of finding a global optimum.
+    Examples:
+    Pick smallest weight
+    Pick largest profit
+- A problem has greedy property if making a local optimal choice leads to global optimal solution.
+- Most greedy problems start with - Sort the input because greedy decisions usually depend on order.
+
+Common Patterns in Greedy -
+- Interval problems
+- Cost minimization
+- Profit maximization

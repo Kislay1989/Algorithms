@@ -1,12 +1,12 @@
-package src.Tree;
+package Tree;
 
 /**
  * Created by kislay on 3/30/17 at 4:54 PM .
  */
 public class BSTNode {
-    private int data;
-    private BSTNode left;
-    private BSTNode right;
+    public int data;
+    public BSTNode left;
+    public BSTNode right;
 
     public BSTNode(int data)
     {

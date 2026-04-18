@@ -9,21 +9,18 @@ public class TrieNode {
     private boolean isEnd;
     private TrieNode[] children;
 
-    TrieNode()
-    {
-	isEnd = false;
-	children = new TrieNode[ALPHABET_SIZE];
-	for (int i = 0; i < ALPHABET_SIZE; i++)
-	    children[i] = null;
+    public TrieNode() {
+        isEnd = false;
+        children = new TrieNode[ALPHABET_SIZE];
+        for (int i = 0; i < ALPHABET_SIZE; i++)
+            children[i] = null;
     }
 
-    public boolean isEnd()
-    {
-	return isEnd;
+    public boolean isEnd() {
+        return isEnd;
     }
 
-    public void setEnd(boolean end)
-    {
-	isEnd = end;
+    public void setEnd(boolean end) {
+        isEnd = end;
     }
 }

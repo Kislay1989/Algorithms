@@ -1,0 +1,19 @@
+If there is an array of numbers, the prefix sum at any index $i$ is the sum of all elements from the very beginning of the array up to that index $i$.
+prefix means all the elements before the current index and sum means the accumulation of those elements.
+The prefix sum pattern is a powerful technique that allows us to efficiently calculate the sum of elements in a subarray.
+ By precomputing the prefix sums, we can quickly determine the sum of any subarray in constant time.
+
+To use this pattern effectively, you typically allocate an extra array (the "buffer space") of the same size as your input to store those cumulative totals.
+
+Method                Space Complexity            Best For...
+Auxiliary Array       O(N)                        When you need to answer many range sum queries (L to R) repeatedly.
+In-Place Array        O(1)                        When you only need the prefix sums and don't care about losing the original values.
+Hash Map + Variable   O(N)                        "When searching for specific subarray sums or patterns (e.g., ""Longest subarray with sum K"")."
+
+
+
+Prefix sum helps when:
+You need subarray sum quickly
+You see “continuous / contiguous”
+
+
