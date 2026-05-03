@@ -1,0 +1,15 @@
+The Trie data structure is used to store a set of keys represented as strings.
+It allows for efficient retrieval and storage of keys, making it highly effective in handling large datasets.
+
+We can insert and search strings (in a dictionary) in O(n) time where n is length of the string. This is obviously faster than BST.
+This is also faster than Hashing because of the ways it is implemented. We do not need to compute any hash function and no collision handling is required.
+Another advantage of Trie is, we can easily print all words in alphabetical order which is not easily possible with hashing.
+We can efficiently do prefix search (or auto-complete) with Trie.
+
+The main disadvantage of tries is that they need a lot of memory for storing the strings.
+For each node we have too many node pointers(equal to number of characters of the alphabet)
+
+Representation of Trie Node
+- Trie data structure consists of nodes connected by edges.
+- Each node represents a character or a part of a string.
+- The root node acts as a starting point and does not store any character.

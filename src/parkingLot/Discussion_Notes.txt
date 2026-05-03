@@ -1,0 +1,30 @@
+Requirement gathering and Scope:
+- Types of Vehicles: Car, Bike, Truck
+- Parking spot types: compact, regular spots, and large.
+- Parking Ticket: a ticket is issued with vehicle details and entry time when a vehicle enters. On exit, the system calculates the fee based on duration and vehicle size, then marks the spot as vacant.
+
+Functional requirements:
+- The parking lot has multiple parking spots
+- The parking lot supports parking for motorcycles, cars, and trucks.
+- Customers can park their vehicles in spots assigned based on vehicle size.
+- Customers receive a parking ticket with vehicle details and entry time at the entry point and pay a fee based on duration, vehicle size, and time of day at the exit point.
+
+Non-Functional requirements:
+- The system should be scalable to accommodate more parking spots and vehicle types in the future.
+- The system must reliably track spot assignments and ticket details to ensure accurate operations.
+
+Entities:
+- Vehicle: Represents a vehicle with attributes like license number, type (car, bike, truck), and size.
+- ParkingSpot: Represents a parking spot with attributes like spot number, type (compact, regular, large), and availability status.
+- Ticket - Represents a parking ticket with attributes like ticket number, vehicle details and entry time.
+
+Behavioural Entities:
+- ParkingLot: Represents the parking lot itself, acts as Facade class to manage parking spots and tickets,
+    and provides methods for parking and exiting vehicles. All the operations related to parking and exiting vehicles will be handled by this class,
+     ensuring a single point of interaction for clients. It acts as coordinator between functionalities, while the actual implementation is delegated.
+- ParkingManager: Responsible for managing parking spots, assigning spots to vehicles, and tracking availability.
+- The calculation of parking fees based on duration, vehicle size, and time of day will be handled by a separate class,
+    FareCalculator, to adhere to the Single Responsibility Principle.
+    This class will encapsulate the logic for fee calculation, allowing for easier maintenance and potential future enhancements without affecting other parts of the system.
+    Since the logic/strategy to calculate fare will have different rules based on time of day, vehicle size, and duration,
+    we can implement the Strategy design pattern to allow for flexible fee calculation strategies.

@@ -1,26 +1,21 @@
 package Trie;
 
-/**
- * Created by kislay on 3/27/18.
- */
+import java.util.HashMap;
+import java.util.Map;
+
 public class TrieNode {
 
-    private static final int ALPHABET_SIZE = 26;
-    private boolean isEnd;
-    private TrieNode[] children;
+    // Every Node is represented by its data (character) as key and
+    // value is the node that represents the next state information.
+    // Each Node represents the prefix of the string that is being inserted in the Trie.
 
-    public TrieNode() {
-        isEnd = false;
-        children = new TrieNode[ALPHABET_SIZE];
-        for (int i = 0; i < ALPHABET_SIZE; i++)
-            children[i] = null;
-    }
+    Map<Character, TrieNode> children;
 
-    public boolean isEnd() {
-        return isEnd;
-    }
+    // If for any Node isEndOfWord is true, it means that the path from root to that Node represents a complete word in the Trie.
+    boolean isEndOfWord;
 
-    public void setEnd(boolean end) {
-        isEnd = end;
+    TrieNode() {
+        children = new HashMap<>();
+        isEndOfWord = false;
     }
 }

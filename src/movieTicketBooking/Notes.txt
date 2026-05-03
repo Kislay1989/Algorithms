@@ -1,0 +1,41 @@
+Requirement gathering and Scope:
+- Search for movies, show-times, and theaters.
+- Book tickets for a specific movie, show-time, theater and seat.
+- Seats can have different pricing strategy.
+- Movies, show-times, theaters and seats selection.
+
+Functional requirements:
+- Movie Management -
+    - Search for movies across theaters and show-times.
+
+- Seat Booking and Pricing -
+    - Book tickets for a specific movie, show-time, theater and seat.
+    - Seats can have different pricing strategy.
+
+- Cost Calculation -
+    - Calculate the total cost of the booking based on the selected seats and their pricing strategy.
+
+Non-Functional requirements:
+- The system should be scalable to accommodate more movies, theaters, show-times, and seats in the future.
+- System should prevent booking conflicts.
+
+Core Entities:
+- Movie: Represents a movie with attributes like title, genre, duration, and rating.
+- Cinema: Represents a physical location with attributes like name, location, and list of theaters.
+- Room: Represents a specific theater room within a cinema, with attributes like room number, seating capacity, and list of seats.
+- Layout: Represents the seating arrangement of a theater room, with attributes like layout type (e.g., standard, VIP) and seat configuration.
+- Seat: Represents an individual seat within a theater room, with attributes like seat number, type (e.g., regular, VIP), and availability status.
+- Screening: Represents a specific show-time for a movie in a theater room, with attributes like movie details, show-time, and associated room.
+- Ticket: Represents a booking for a specific screening and seat, with attributes like ticket number, screening details, seat details, and total cost.
+- Order: Represents a customer's order, which can include multiple tickets, with attributes like order number, list of tickets, and total cost.
+
+Service Layer:
+- ScreeningManager
+- MovieBookingSystem: Acts as the Facade class to manage movies, screenings, seats, and bookings.
+    It provides methods for searching movies, booking tickets, and calculating costs.
+    All operations related to movie management and ticket booking will be handled by this class, ensuring a single point of interaction for clients.
+    It acts as a coordinator between functionalities, while the actual implementation is delegated to other classes.
+
+Handling Concurrency and solving Race condition:
+- To prevent race conditions, we can use locking mechanisms to ensure only one user books a seat at a time, turning parallel actions into sequential ones.
+  There are two common approaches: pessimistic locking and optimistic locking, each with distinct trade-offs.
