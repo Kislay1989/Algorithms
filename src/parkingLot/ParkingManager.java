@@ -3,6 +3,7 @@ package parkingLot;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class ParkingManager {
@@ -43,9 +44,10 @@ public class ParkingManager {
     }
 
     public ParkingSpot parkVehicle(Vehicle vehicle) {
-        lock.lock();
         ParkingSpot parkingSpot = null;
+        boolean acquired = false;
         try {
+            acquired = lock.tryLock(10, TimeUnit.SECONDS);
             parkingSpot = findParkingSpot(vehicle);
             if (parkingSpot != null) {
                 parkingSpot.occupy(vehicle);
@@ -57,7 +59,9 @@ public class ParkingManager {
         } catch (Exception e) {
             return parkingSpot;
         } finally {
-            lock.unlock();
+            if (acquired) {
+                lock.unlock();
+            }
         }
 
         return null;
