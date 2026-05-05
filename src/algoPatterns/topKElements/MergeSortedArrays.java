@@ -10,6 +10,8 @@ import java.util.PriorityQueue;
  * We will initialize the heap with the first element of each row,
  * and then repeatedly extract the minimum element from the heap and add it to the result list.
  * After extracting an element, we will add the next element from the same row to the heap until we have processed all elements.
+ * Time Complexity: O(n*log(k)), k is number of rows and n is total number of elements.
+ * Auxiliary Space: O(k)
  *
  */
 

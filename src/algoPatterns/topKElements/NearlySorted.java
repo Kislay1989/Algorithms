@@ -8,7 +8,10 @@ import java.util.PriorityQueue;
  * The idea is to use a min heap.
  * If we start placing the correct elements from left to right, then the element for the current position must be
  * within the next k+1 elements, and we don’t need to check the elements to the left.
- *So for any given ith element, the left side of array will be sorted using min heap.
+ * The smallest element in sorted array is at 0 position. According to the given condition, it means that in the unsorted array, the element must be between 0 and 0 + k.
+ * So we will insert the first k+1 elements in the min heap and pop the minimum element and add to the array at 0th index. This way we will get the smallest element at 0th index.
+ * Then we will insert the next element in the min heap and pop the minimum element and add to the array at 1st index. This way we will get the second smallest element at 1st index.
+ * So for any given ith element, the left side of array will be sorted using min heap.
  * Finally, we remove all remaining elements from the heap and add to the array.
  */
 

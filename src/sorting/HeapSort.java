@@ -3,10 +3,12 @@ package sorting;
 /**
  * Heap is a partial order, NOT a fully sorted structure
  * Only this is guaranteed:
- * Root element = smallest (min heap) OR largest (max heap)
- * In heap the parent of a node at index 'i' can be found at index [(i-1)/2]
+ * Root element = smallest (min heap) OR largest (max heap) . This property is recursive in nature meaning it applies to every single subtree within the structure.
+ * In heap the parent of a node at index 'i' can be found at index [(i/2 - 1)] and the left and right children of a node at index 'i' can be found at indices [2*i + 1] and [2*i + 2] respectively.
  * 👉 But:
  * Rest of elements are NOT fully sorted
+ * A Max Heap does not guarantee a specific relationship between "cousin" nodes (nodes on the same level but under different parents).
+ * It only guarantees the relationship vertically between parents and children.
  * <p>
  * Steps -
  * 1.) First convert the array into a Max heap using heapify process (log n time complexity). This step will push the largest element at root.
@@ -30,9 +32,13 @@ public class HeapSort {
         int len = arr.length;
 
         // len / 2 - 1 is the index of last non-leaf node as root node is [(i-1)/2]
-        for (int i = len / 2 - 1; i >= 0; i--)
+        for (int i = len / 2 - 1; i >= 0; i--) {
             heapify(arr, len, i);
+        }
 
+        // After the above loop, the array is converted into a max heap and the largest element is at root.
+        // Now we need to swap the root with the last element and reduce the heap size by 1 and again heapify the root element to maintain the max heap property.
+        // We repeat this process until the heap size is equal to 1.
         for (int i = len - 1; i > 0; i--) {
             // Move current root to end
             int tmp = arr[i];

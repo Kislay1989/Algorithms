@@ -14,6 +14,6 @@ public class TrappingRainWater {
      * and then the water trapped at ith element will be min(leftMax, rightMax) - height[i]
      */
     public int trap(int[] height) {
-
+        return 0;
     }
 }
