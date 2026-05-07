@@ -4,6 +4,10 @@ public class MaxSubarraySum {
 
     /**
      * Given an array of integers, find the maximum sum of a contiguous subarray.
+     *
+     * At any given ith state, we add the current element to the maximum sum of the previous state (i-1) and compare it with the current element itself.
+     * If the result is greater than the current element, then we will continue with the previous state and add the current element to it.
+     * Otherwise, we will start a new subarray from the current element.
      */
 
     public static void main(String[] args) {

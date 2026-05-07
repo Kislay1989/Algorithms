@@ -2,6 +2,16 @@ package algoPatterns.topKElements;
 
 import java.util.*;
 
+/**
+ * Given an array arr[] and a positive integer k, Find the top k elements which have the highest frequency in the array.
+ *
+ * The idea is to use a min heap (priority queue) to keep track of the top k elements based on their frequency.
+ * 1.) We will first create a frequency map to count the occurrences of each element in the array.
+ * 2.) Then, we will iterate through the frequency map and add each element along with its frequency to the min heap.
+ * 3.) If the size of the heap exceeds k, we will remove the element with the lowest frequency (the root of the min heap).
+ * 4.) After processing all elements in the frequency map, the min heap will contain the top k elements with the highest frequency.
+ */
+
 public class TopKFrequency {
 
     /*
@@ -16,6 +26,24 @@ public class TopKFrequency {
 
         res = topKFrequency.topKFreq2(arr, k);
         System.out.println(res);
+    }
+
+    static class Element implements Comparable<Element> {
+        int value;
+        int frequency;
+
+        public Element(int value, int index) {
+            this.value = value;
+            this.frequency = index;
+        }
+
+        @Override
+        public int compareTo(Element o) {
+            if (this.frequency == o.frequency) {
+                return Integer.compare(o.value, this.value);
+            }
+            return Integer.compare(this.frequency, o.frequency);
+        }
     }
 
     private ArrayList<Integer> topKFreq2(int[] arr, int k) {
@@ -44,28 +72,11 @@ public class TopKFrequency {
         return res;
     }
 
-    static class Element implements Comparable<Element> {
-        int value;
-        int frequency;
-
-        public Element(int value, int index) {
-            this.value = value;
-            this.frequency = index;
-        }
-
-        @Override
-        public int compareTo(Element o) {
-            if (this.frequency == o.frequency) {
-                return Integer.compare(o.value, this.value);
-            }
-            return Integer.compare(this.frequency, o.frequency);
-        }
-    }
-
     public ArrayList<Integer> topKFreq(int[] arr, int k) {
         ArrayList<Integer> res = new ArrayList<>();
         PriorityQueue<Element> heap = new PriorityQueue<>();
         Map<Integer, Integer> frequencyMap = new HashMap<>();
+
         for (int num : arr) {
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
         }

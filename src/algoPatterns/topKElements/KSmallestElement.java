@@ -10,16 +10,19 @@ import java.util.PriorityQueue;
  * 1.) The Kth smallest element in a sorted array of size K is the largest element.
  * 2.) So for every iteration we maintain a max heap of size K.
  * 3.) For every iteration, when the 5th element is inserted , the largest element is polled out, leaving the 4 smallest elements in the heap.
- *
+ * <p>
  * If the size of the heap exceeds k, we remove the maximum element from the heap.
  * This way, we ensure that the heap always contains the k smallest elements seen so far.
  * At the end of the iteration, the root of the max heap will be the kth smallest element in the array.
+ *
+ * In a max heap of size k, the top element is max from elements of size k . So max form size K means smallest k.
+ *
+ * Time Complexity: O(n log k), where n is the number of elements in the array and k is the size of the heap.
  */
 
 public class KSmallestElement {
 
     public int kthSmallest(int[] arr, int k) {
-        // Code here
         PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
 
         for (int val : arr) {
@@ -34,7 +37,7 @@ public class KSmallestElement {
     public static void main(String[] args) {
         KSmallestElement kSmallestElement = new KSmallestElement();
         int[] arr = {10, 5, 4, 3, 48, 6, 2, 33, 53, 10};
-        int k = 4;
+        int k = 5;
         System.out.println(kSmallestElement.kthSmallest(arr, k));
     }
 }
