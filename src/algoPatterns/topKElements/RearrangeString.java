@@ -50,7 +50,7 @@ public class RearrangeString {
 
         freq.put(c, 0);
 
-
+        return "";
     }
 
     // O(n*log n) Time and O(n) Space

@@ -4,6 +4,12 @@ import java.util.Stack;
 
 public class MirrorTree {
 
+    /**
+     *
+     * The approach is to use two stacks to do a simultaneous traversal of both trees.
+     * We will be doing a PreOrder traversal of both trees, but for one tree we will be traversing left first and for the other tree we will be traversing right first.
+     * This way we can compare the nodes at each step and check if they are mirrors of each other.
+     */
     static boolean checkIfMirrorsIteratively(BSTNode root1, BSTNode root2) {
         if (root1 == null && root2 == null) {
             return true;

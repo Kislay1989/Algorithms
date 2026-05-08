@@ -46,6 +46,8 @@ public class InorderTraversal {
     /**
      * A key thing here while using a stack is that only when moving to left, we push the current node in stack.
      * While moving to right, we do not push the current node in stack as we have already visited it, and we are done with it.
+     * <p>
+     * Mental Note - Push left, pop, visit, move right → repeat until stack empty & curr null
      */
     public static ArrayList<Integer> inOrderTraversalIterative(BSTNode root) {
         ArrayList<Integer> ans = new ArrayList<>();
@@ -56,7 +58,7 @@ public class InorderTraversal {
 
         BSTNode curr = root;
         while (curr != null || !stack.isEmpty()) {
-            // First reach the left most Node of the curr Node
+            // This inner while loop ensures that for any given subtree we reach the left most node and push all the nodes in the path in stack
             while (curr != null) {
                 stack.push(curr);
                 curr = curr.getLeft();

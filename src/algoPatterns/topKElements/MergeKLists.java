@@ -4,8 +4,8 @@ import java.util.PriorityQueue;
 
 /**
  * Merge k sorted linked lists and return it as one sorted list.
- *
- * Time Complexity: O(n log k), where n is the total number of nodes across all lists and k is the number of linked lists.
+ * <p>
+ * Time Complexity: O(n log k), where n is the total number of nodes across all lists and k is the count of lists.
  */
 
 public class MergeKLists {

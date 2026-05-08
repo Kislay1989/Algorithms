@@ -2,6 +2,9 @@ package Tree;
 
 import java.util.*;
 
+/**
+ * Problem Statement - Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+ */
 public class LowestCommonAncestor {
 
     public static void main(String[] args) {
@@ -19,17 +22,16 @@ public class LowestCommonAncestor {
         root.left.right = new BSTNode(5);
 
         System.out.println(lowestCommonAncestor(root, 4, 5).getData());
-        //System.out.println(lowestCommonAncestorIteratively(root, 4, 5).getData());
     }
 
     /**
      * The approach is following -
-     * 1.) Build a map to store all the ancestors of both p and q.
+     * 1.) Build a map to store all the ancestors of both p and q. We do a PreOrder traversal to build this map.
      * The map will have data in this way - <Key=child, Value=parent> (Child -> Parent relationship)
      * 2.) The get a collection of all the ancestors of p from down -> up.
      * 3.) From this collection, find which is also an ancestor of q (processing down -> up)
      */
-    /*private static BSTNode lowestCommonAncestorIteratively(BSTNode root, int p, int q) {
+    private static BSTNode lowestCommonAncestorIteratively(BSTNode root, BSTNode p, BSTNode q) {
         if (root == null) {
             return null;
         }
@@ -41,16 +43,18 @@ public class LowestCommonAncestor {
         stack.push(root);
 
         // Build parent map until both p and q are found
+        // The stack is used with map to ensure that we do PreOrder traversal and visit all the nodes in the tree until both p and q are found.
         while (!parent.containsKey(p) || !parent.containsKey(q)) {
             BSTNode node = stack.pop();
-            if (node.left != null) {
-                parent.put(node.left, node);
-                stack.push(node.left);
-            }
 
             if (node.right != null) {
                 parent.put(node.right, node);
                 stack.push(node.right);
+            }
+
+            if (node.left != null) {
+                parent.put(node.left, node);
+                stack.push(node.left);
             }
         }
 
@@ -68,8 +72,12 @@ public class LowestCommonAncestor {
         }
 
         return q;
-    }*/
+    }
 
+    /**
+     *
+     * This is for a binary search tree.
+     */
     public static BSTNode lowestCommonAncestor(BSTNode root, BSTNode p, BSTNode q) {
         BSTNode curr = root;
 
@@ -91,6 +99,7 @@ public class LowestCommonAncestor {
      * Both sides found → current node is LCA
      */
     public static BSTNode lowestCommonAncestor(BSTNode root, int p, int q) {
+        // Base condition for recursive calls
         if (root == null || root.data == p || root.data == q) {
             return root;
         }

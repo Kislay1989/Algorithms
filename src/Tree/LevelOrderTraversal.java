@@ -20,6 +20,7 @@ public class LevelOrderTraversal {
         root.left.right = new BSTNode(5);
 
         levelOrderTraversalLineByLine(root);
+        levelOrderTraversalLineByLine2(root);
     }
 
 
@@ -53,6 +54,28 @@ public class LevelOrderTraversal {
             }
             System.out.println(" ");
         }
+    }
+
+    private static void levelOrderTraversalLineByLine2(BSTNode root) {
+        if (root == null) {
+            return;
+        }
+
+        Queue<BSTNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            BSTNode curr = queue.poll();
+            System.out.print(curr.getData() + " ");
+
+            if (curr.left != null) {
+                queue.add(curr.left);
+            }
+            if (curr.right != null) {
+                queue.add(curr.right);
+            }
+        }
+
     }
 
 }
