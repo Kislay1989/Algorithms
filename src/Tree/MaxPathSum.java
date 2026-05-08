@@ -20,11 +20,21 @@ public class MaxPathSum {
         root.left.left = new BSTNode(4);
         root.left.right = new BSTNode(5);
 
-        int maxPathSum = findMaxPathSum(root);
-        System.out.println("Max Path Sum: " + maxPathSum);
+        int[] res = new int[1];
+        int maxSum = findMaxPathSum(root, res);
+        System.out.println("Max Path Sum: " + maxSum);
     }
 
-    private static int findMaxPathSum(BSTNode root) {
-        return 0;
+    private static int findMaxPathSum(BSTNode root, int[] res) {
+        if (root == null) {
+            return 0;
+        }
+
+        int left = Math.max(0, findMaxPathSum(root.left, res));
+        int right = Math.max(0, findMaxPathSum(root.right, res));
+
+        res[0] = Math.max(res[0], left + right + root.data);
+
+        return Math.max(left, right) + root.data;
     }
 }

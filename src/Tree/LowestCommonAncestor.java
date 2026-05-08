@@ -75,7 +75,6 @@ public class LowestCommonAncestor {
     }
 
     /**
-     *
      * This is for a binary search tree.
      */
     public static BSTNode lowestCommonAncestor(BSTNode root, BSTNode p, BSTNode q) {

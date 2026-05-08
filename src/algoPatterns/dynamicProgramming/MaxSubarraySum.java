@@ -4,10 +4,14 @@ public class MaxSubarraySum {
 
     /**
      * Given an array of integers, find the maximum sum of a contiguous subarray.
-     *
+     * <p>
      * At any given ith state, we add the current element to the maximum sum of the previous state (i-1) and compare it with the current element itself.
      * If the result is greater than the current element, then we will continue with the previous state and add the current element to it.
      * Otherwise, we will start a new subarray from the current element.
+     * <p>
+     * Time Complexity: O(n) as we are iterating through the array only once.
+     * <p>
+     * Kadane's algorithm is a classic example of dynamic programming where the optimal solution builds upon previous optimal sub-solutions.
      */
 
     public static void main(String[] args) {
