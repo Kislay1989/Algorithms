@@ -30,9 +30,7 @@ public class FlightService {
 
         try {
             for (String airlineName : supportedAirlines) {
-                Callable<List<Airline>> task = () ->
-                        flightApiClient.fetchFlights(airlineName, origin, destination, date);
-
+                FlightTask task = new FlightTask(date, origin, destination, airlineName, flightApiClient);
                 futures.add(executorService.submit(task));
             }
 
@@ -49,8 +47,6 @@ public class FlightService {
                     Thread.currentThread().interrupt();
                     throw new RuntimeException("Thread interrupted while fetching flights", e);
                 } catch (ExecutionException e) {
-                    // In production, log and continue so one airline failure
-                    // does not fail the whole request
                     System.err.println("Failed to fetch flights from one airline: " + e.getCause());
                 }
             }

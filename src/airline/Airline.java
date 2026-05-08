@@ -4,13 +4,13 @@ import java.util.Date;
 
 public class Airline {
 
-    private String airlineName;
-    private String flightNumber;
-    private String origin;
-    private String destination;
-    private Date departureTime;
-    private Date arrivalTime;
-    private double price;
+    private final String airlineName;
+    private final String flightNumber;
+    private final String origin;
+    private final String destination;
+    private final Date departureTime;
+    private final Date arrivalTime;
+    private final double price;
 
     public Airline(String airlineName, String flightNumber, String origin, String destination, Date departureTime, Date arrivalTime, double price) {
         this.airlineName = airlineName;
