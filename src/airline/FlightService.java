@@ -20,6 +20,43 @@ public class FlightService {
         this.flightApiClient = flightApiClient;
     }
 
+    public List<Airline> getAirlines2(Date date, String origin, String destination) {
+        int size = supportedAirlines.size();
+        ExecutorService executors = Executors.newFixedThreadPool(size);
+        List<FlightTask> tasks = new ArrayList<>();
+
+        try {
+            for (String airLine : supportedAirlines) {
+                FlightTask task = new FlightTask(date, origin, destination, airLine, flightApiClient);
+                tasks.add(task);
+            }
+
+            List<Airline> result = new ArrayList<>();
+
+            try {
+                List<Future<List<Airline>>> futures = executors.invokeAll(tasks);
+                for (Future<List<Airline>> future : futures) {
+                    try {
+                        List<Airline> flights = future.get(2, TimeUnit.SECONDS);
+                        if (flights != null && !flights.isEmpty()) {
+                            result.addAll(flights);
+                        }
+                    } catch (ExecutionException e) {
+                        System.err.println("Failed to fetch flights from one airline: " + e.getCause());
+                    } catch (TimeoutException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+            return result;
+        } finally {
+            executors.shutdown();
+        }
+    }
+
     public List<Airline> getAirlines(Date date, String origin, String destination) {
         int airlineCount = supportedAirlines.size();
 
