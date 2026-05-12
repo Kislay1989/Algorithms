@@ -1,0 +1,18 @@
+Functional Requirements:
+- Multiple Player Game
+- User gets registered in the game
+- Get a list of all players with their scores - sorted based on the score
+- Update the score of each player
+- Maintain position of each player based on the score
+- At the end of the game, declare the winner based on the score
+
+Non-Functional Requirements:
+- The system should be able to handle up to 100 players at a time
+- The system should be able to update the score of each player in real-time
+- The system should be able to maintain the position of each player based on the score in real-time
+- The system should be able to declare the winner at the end of the game in real-time
+
+Facade class responsibilities:
+- Register a player in the game
+- Get a list of all players with their scores - sorted based on the score
+- Update the score of each player.

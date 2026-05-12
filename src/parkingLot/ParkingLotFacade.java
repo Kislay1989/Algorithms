@@ -9,13 +9,13 @@ import static parkingLot.VehicleSize.*;
  * This is the Facade class that provides a simplified interface to the complex parking lot system by acting as orchestrator.
  * It manages the parking lot, handles vehicle entry and exit, and calculates parking fees using the appropriate fare strategy.
  */
-public class ParkingLot {
+public class ParkingLotFacade {
 
     private final ParkingManager parkingManager;
     private final FareStrategy fareStrategy;
 
 
-    public ParkingLot(FareStrategy fareStrategy) {
+    public ParkingLotFacade(FareStrategy fareStrategy) {
         this.parkingManager = ParkingManager.getInstance();
         setAvailableSpots();
         this.fareStrategy = fareStrategy;
