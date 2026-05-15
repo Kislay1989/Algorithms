@@ -8,8 +8,8 @@ import java.util.List;
  */
 public class CustomThreadPool {
 
-    private CustomBlockingQueue taskQueue;
-    private List<WorkerThread> workerThreads = new ArrayList<>();
+    private final CustomBlockingQueue taskQueue;
+    private final List<WorkerThread> workerThreads = new ArrayList<>();
     private boolean isStopped = false;
 
     public CustomThreadPool(int noOfWorkerThreads, int maxNoOfTasks) {

@@ -2,6 +2,9 @@ package algoPatterns.slidingWindowPattern;
 
 import java.util.*;
 
+/**
+ * Given an array of integers and a number ‘k,’ find the count of distinct numbers in all windows of size ‘k’ in the array.
+ */
 public class CountDistinctElements {
 
     ArrayList<Integer> countDistinct(int[] arr, int k) {

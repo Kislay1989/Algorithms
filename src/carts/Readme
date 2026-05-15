@@ -1,0 +1,33 @@
+LLD for a shopping cart system with discounts based on product type, user type and coupon selection
+
+- based on product type - user is eligible for discounts
+- cart - collection of multiple products
+- different discount types
+    - based on product type
+    - based on User type
+    - user selection coupons ()
+
+- We will have multiple coupon types which will be provided to the user at cart page
+
+Functionality Exposed
+1.) Add products to cart along with an associated coupon
+2.) System will calculate the discount
+3.) System will also provide discount type
+
+There can be different discount strategy which can be applied to the cart.
+These discount strategies will have different impact on the aggregation of the discounts.
+For example, if we have a discount strategy which is based on product type,
+then the discount will be applied to the products in the cart based on their type.
+If we have a discount strategy which is based on user type, then the discount will be applied to the entire cart based on the user's type.
+If we have a discount strategy which is based on coupon selection,
+then the discount will be applied to the entire cart based on the selected coupon.
+
+
+Entities -
+1.) User
+2.) User_Type
+3.) Product
+4.) Product_Type
+5.) Coupon
+6.) Coupon_Type
+7.) Cart

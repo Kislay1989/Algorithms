@@ -7,13 +7,12 @@ public class RunnableTask implements Runnable {
 
     private final String name;
 
-    RunnableTask(String name)
-    {
-	this.name = name;
+    RunnableTask(String name) {
+        this.name = name;
     }
 
-    @Override public void run()
-    {
-	System.out.println("Thread : " + this.name + " is implemented.");
+    @Override
+    public void run() {
+        System.out.println("Thread : " + this.name + " is implemented.");
     }
 }

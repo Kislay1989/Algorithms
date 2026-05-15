@@ -26,13 +26,13 @@ class CustomBlockingQueue {
     synchronized void enQueue(Object item) throws InterruptedException {
         while (this.queue.size() == this.limit)
             wait();
-        if (this.queue.size() == 0)
+        if (this.queue.isEmpty())
             notifyAll();
         this.queue.add(item);
     }
 
     synchronized Object deQueue() throws InterruptedException {
-        while (this.queue.size() == 0)
+        while (this.queue.isEmpty())
             wait();
         if (this.queue.size() == this.limit)
             notifyAll();
