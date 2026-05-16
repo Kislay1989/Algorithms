@@ -1,0 +1,9 @@
+Standard Concurrency Executor Frameworks in java implement -
+- FIFO
+- Bounded/UnBounded Queue
+- Static Priority Queue
+
+But in the situation when the priority of tasks need to be changed dynamically, these frameworks are not suitable.
+In such cases, we can implement a custom executor framework that uses a dynamic priority queue.
+PriorityBlockingQueue does not automatically re-balance when priority changes,
+so we needed a custom dequeue strategy that recalculates effective priority at pick time.

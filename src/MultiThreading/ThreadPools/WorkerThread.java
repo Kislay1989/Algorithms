@@ -18,8 +18,8 @@ class WorkerThread extends Thread {
         while (!this.isStopped) {
             try {
                 System.out.println("Thread :" + name + " is working");
-                Runnable runnable = (Runnable) taskQueue.deQueue();
-                runnable.run();
+                PrioritizedTask prioritizedTask = taskQueue.deQueue();
+                prioritizedTask.task.run();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -29,7 +29,7 @@ class WorkerThread extends Thread {
     void doStop() {
         this.isStopped = true;
         System.out.println("Thread :" + name + " is being stopped");
-        //break pool thread out of dequeue() call
+        //break pool thread out of deQueue() call
         this.interrupt();
     }
 }
